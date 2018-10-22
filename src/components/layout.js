@@ -4,7 +4,6 @@ import Helmet from 'react-helmet'
 import { StaticQuery, graphql } from 'gatsby'
 import styled, { ThemeProvider } from 'styled-components'
 
-import Header from './header'
 import theme from '../theme'
 import './layout.css'
 
@@ -36,6 +35,14 @@ const Layout = ({ children }) => (
             ]}
           >
             <html lang="en" />
+            <style>{`
+              .leaflet-div-icon{
+                background: transparent;
+                border: 1px solid red;
+                border:none;
+
+
+              }`}</style>
             <link
               rel="stylesheet"
               href="https://unpkg.com/leaflet@1.3.4/dist/leaflet.css"
@@ -43,21 +50,7 @@ const Layout = ({ children }) => (
               crossorigin=""
             />
           </Helmet>
-          <PageContainer>
-            <Header siteTitle={data.site.siteMetadata.title} />
-            <div
-              style={{
-                flex: '1 1 auto',
-                minHeight: 0,
-                // margin: '0 auto',
-                // maxWidth: 960,
-                // padding: '0px 1.0875rem 1.45rem',
-                // paddingTop: 0,
-              }}
-            >
-              {children}
-            </div>
-          </PageContainer>
+          <PageContainer>{children}</PageContainer>
         </>
       )}
     />

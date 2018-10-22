@@ -19,6 +19,7 @@ const relevantStuff = converted.features.map(({ geometry, properties }) => {
     Internetseite: website,
     Öffnungszeiten: hours,
     Nachhaltigkeit: tags,
+    Art: type,
   } = properties
 
   return {
@@ -29,6 +30,8 @@ const relevantStuff = converted.features.map(({ geometry, properties }) => {
     price,
     city,
     website,
+    type,
+    hours,
     tags: tags ? tags.split(', ') : [],
   }
 })

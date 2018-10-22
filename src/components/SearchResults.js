@@ -25,7 +25,10 @@ const Result = styled.li`
 const SearchResults = ({ places, onSelect }) => (
   <ResultList>
     {places.map((place, index) => (
-      <Result key={`${place.name} ${index}`} onClick={() => onSelect(place)}>
+      <Result
+        key={`${place.name}-${place.lat}-${place.lng}`}
+        onClick={() => onSelect(place)}
+      >
         <Text fontWeight="bold">{place.name}</Text>
         <Text>
           {place.city}
